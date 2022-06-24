@@ -1,14 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
 import Hello from './components/Hello';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import { SideNav } from './components/SideNav';
+import Products from './components/Products';
+
 
 function App() {
   return (
-    <div className="App">
-      <Header></Header> <br/><br/><br/>
-      <Hello name="David" /><br/><br/><br/>
+    <div className="container">
+      <Header></Header>
+      <Navbar />
+      <SideNav />
+      <Products
+       />
       <Footer />
     </div>
   );
