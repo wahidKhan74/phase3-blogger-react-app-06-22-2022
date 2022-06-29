@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () =>{
     return (
@@ -12,18 +13,18 @@ const Navbar = () =>{
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                <Link className="nav-link active" aria-current="page" to="/" >Home</Link>
                 </li>
-                <li className="nav-item"><a className="nav-link" href="#">Link</a></li>
-                <li className="nav-item"><a className="nav-link" href="#">About</a></li>
-                <li className="nav-item"><a className="nav-link" href="#">Contact Us</a></li>
-                <li className="nav-item"><a className="nav-link" href="#">Users</a></li>
+                <li className="nav-item"><Link className="nav-link" to="/blogs">Blogs</Link></li>
+                <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
+                <li className="nav-item"><Link className="nav-link" to="/contact">Contact Us</Link></li>
+                <li className="nav-item"><Link className="nav-link" to="/users">Users</Link></li>
                 <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <Link className="nav-link dropdown-toggle" to="/products" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Products
-                </a>
+                </Link>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a className="dropdown-item" href="#">Electronics</a></li>
+                    <li><a className="dropdown-item" to="/blogs">Electronics</a></li>
                     <li><a className="dropdown-item" href="#">Fashion</a></li>
                     <li><a className="dropdown-item" href="#">Home & Kitchen</a></li>
                     <li><a className="dropdown-item" href="#">Books</a></li>

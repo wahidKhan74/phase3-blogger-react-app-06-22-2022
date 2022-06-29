@@ -14,9 +14,9 @@ export default class ProductForm extends Component {
                 category: ''
             },
             categories: [
-                { code: 'ELECT', name: 'Electronics' },
+                { code: 'ELECTRONICS', name: 'Electronics' },
                 { code: 'FASHION', name: 'Fashion' },
-                { code: 'HAK', name: 'Home & Kitchen' },
+                { code: 'HOMEANDKITECHEN', name: 'Home & Kitchen' },
                 { code: 'BOOK', name: 'Books' }
             ],
         }
@@ -65,17 +65,17 @@ export default class ProductForm extends Component {
                 <form onSubmit={this.handleFormSubmit}>
                 <div className="form-group">
                     <label htmlFor="title">Title</label>
-                    <input type="text" className="form-control" id="title" name="Enter Product title"
+                    <input type="text" className="form-control" id="title" autoComplete="off" name="Enter Product title"
                     placeholder="Enter title" value={this.state.product.title}  onChange={this.handleTitleChange} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="body">Body</label>
-                    <textarea className="form-control" id="body" name="body" placeholder="Enter decription"
+                    <textarea className="form-control" id="body" name="body"autoComplete="off"  placeholder="Enter decription"
                     rows="3" cols="30" value={this.state.product.body} onChange={this.handleBodyChange}></textarea>
                 </div>
                 <div className="form-group">
                     <label htmlFor="price">Price</label>
-                    <input type="number" className="form-control" id="price" name="price" placeholder="Enter price" 
+                    <input type="number" className="form-control" id="price" autoComplete="off" name="price" placeholder="Enter price" 
                     value={this.state.product.price}  onChange={this.handlePriceChange} />
                 </div>
                 <div className="form-group">

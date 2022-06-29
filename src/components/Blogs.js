@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const Users = () => {
+export const Blogs = () => {
     return (
         <div>
-            <h2> User component works !</h2>
+             <h2> Blogs component works !</h2>
         </div>
     )
 }
