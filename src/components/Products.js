@@ -52,7 +52,23 @@ export default class Products extends Component {
         }
     }
 
-  
+      // add post 
+    handleNewProduct =(product)=>{
+        this.setState((prevSate)=> {
+            return { products : [...prevSate.products,product] }
+        });
+    }
+
+    handleDelete = (id) =>{
+        console.log("This is "+id);
+        
+        this.setState((prevSate)=>{
+            const filteredProducts = prevSate.products.filter((product)=>{
+                return (product.id !== id);
+            });
+            return {products: filteredProducts};
+        });
+    }
 
     renderProducts() {
         return (
@@ -61,7 +77,7 @@ export default class Products extends Component {
                 {
                     this.state.products.map((product)=> {
                         return (
-                            <ProductDetails key={product.id} product={product} />
+                            <ProductDetails key={product.id} product={product} onDelete={this.handleDelete} />
                         );
                     })
                 }
@@ -70,7 +86,7 @@ export default class Products extends Component {
     }
     renderProductForm() {
         return (
-            <ProductForm />
+            <ProductForm categories={this.state.categories} onNewProduct={this.handleNewProduct} />
         )
     }
     render() {

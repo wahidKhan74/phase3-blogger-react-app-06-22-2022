@@ -12,13 +12,7 @@ export default class ProductForm extends Component {
                 body: '',
                 price: '',
                 category: ''
-            },
-            categories: [
-                { code: 'ELECTRONICS', name: 'Electronics' },
-                { code: 'FASHION', name: 'Fashion' },
-                { code: 'HOMEANDKITECHEN', name: 'Home & Kitchen' },
-                { code: 'BOOK', name: 'Books' }
-            ],
+            }
         }
     }
 
@@ -26,7 +20,9 @@ export default class ProductForm extends Component {
     handleFormSubmit(event) {
         event.preventDefault();
         console.log("This : ", this);
-        
+        this.props.onNewProduct(this.state.product);
+         //after submit form make form empty fields
+         this.setState({ product : {id: 0,title: '', body: '', price: '',category: ''}})
     }
 
     handleTitleChange = (e) => {
@@ -51,8 +47,8 @@ export default class ProductForm extends Component {
     }
 
     renderCategories() {
-        return this.state.categories.map((category)=>{
-            return <option key={category.code} value={category.code}> {category.name}</option>
+        return this.props.categories.map((category)=>{
+            return <option key={category.code} value={category.name}> {category.name}</option>
         });
     }
 
@@ -85,8 +81,8 @@ export default class ProductForm extends Component {
                     <option value=""></option>
                     {this.renderCategories()}
                     </select>
-                </div>
-                <button type="submit" className="btn btn-primary">Save</button>
+                </div><br />
+                <button type="submit" className="btn btn-info">Save</button>
                 </form>
             </div>
             </div>

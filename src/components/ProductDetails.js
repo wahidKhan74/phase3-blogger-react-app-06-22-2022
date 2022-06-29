@@ -11,7 +11,9 @@ export const ProductDetails = (props) => {
             <p className="card-text">Category: {props.product.category}</p>
             </div>
             <div className="card-footer">
-                <button className="btn btn-sm btn-outline-danger" type="button">Delete</button>
+                <button className="btn btn-sm btn-outline-danger"  
+                onClick={ ()=> {props.onDelete(props.product.id); } }
+                type="button">Delete</button>
             </div>
     </div>
     )
