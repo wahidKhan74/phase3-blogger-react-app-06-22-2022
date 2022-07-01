@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "title": "Apple iPhone 11",
+      "body": "An apple mobile which is nothing like apple",
+      "price": 749,
+      "brand": "Apple",
+      "rating": 4.99,
+      "category": "Electronics"
+    },
+    {
+      "id": 3,
+      "title": "Apple iPhone 10",
+      "body": "An apple mobile which is nothing like apple",
+      "price": 649,
+      "brand": "Apple",
+      "rating": 4,
+      "category": "Electronics"
+    },
+    {
+      "id": 4,
+      "title": "Kitchen Frying Pan",
+      "body": "It is a frying pan",
+      "price": 649,
+      "brand": "Apple",
+      "rating": 4,
+      "category": "Home & Kitchen"
+    },
+    {
+      "id": 6,
+      "title": "Nike Joyride Run With Revolutionary Cushioning",
+      "body": "The Joyride Run is designed to help make running feel easier",
+      "price": "2999",
+      "category": "Fashion"
+    },
+    {
+      "id": 7,
+      "title": "Apple Airpods 3 (3rd Generation)",
+      "body": "The all-new AirPods 3rd generation is lightweight and offers an Awesome design.",
+      "price": "1699.00",
+      "category": "Electronics"
+    }
+  ],
+  "users": [
+    {
+      "id": 1001,
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "admin@gmail.com",
+      "password": "pass@123"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { ProductDetails } from './ProductDetails';
 import ProductForm from './ProductForm';
+import { getProducts, addProduct, deleteProduct } from '../services/ProductService';
 
 export default class Products extends Component {
 
@@ -20,54 +21,41 @@ export default class Products extends Component {
                 { code: 'HAK', name: 'Home & Kitchen' },
                 { code: 'BOOK', name: 'Books' }
             ],
-            products: [
-                {
-                  id: 1,
-                  title: 'iPhone 9',
-                  body: 'An apple mobile which is nothing like apple',
-                  price: 549,
-                  brand: "Apple",
-                  rating: 4.69,
-                  category: 'Electronics'
-                },
-                {
-                    id: 2,
-                    title: 'iPhone 11',
-                    body: 'An apple mobile which is nothing like apple',
-                    price: 749,
-                    brand: "Apple",
-                    rating: 4.99,
-                    category: 'Electronics'
-                  },
-                  {
-                    id: 3,
-                    title: 'iPhone 10',
-                    body: 'An apple mobile which is nothing like apple',
-                    price: 649,
-                    brand: "Apple",
-                    rating: 4.00,
-                    category: 'Electronics'
-                  }
-              ]
+            products: [  ]
         }
     }
 
+    //component lifecycle methods
+    componentDidMount() { 
+        getProducts().then((products)=>{
+            this.setState({ products : products });
+        }).catch((error)=>{
+            console.error("Get all products is failed");
+        });
+    }
       // add post 
     handleNewProduct =(product)=>{
-        this.setState((prevSate)=> {
-            return { products : [...prevSate.products,product] }
+        addProduct(product).then((newProduct)=>{
+            this.setState((prevSate)=> {
+                return { products : [...prevSate.products,newProduct] }
+            });
+        }).catch((error)=>{
+            console.error("Add products is failed", error);
         });
+        
     }
 
     handleDelete = (id) =>{
-        console.log("This is "+id);
-        
-        this.setState((prevSate)=>{
-            const filteredProducts = prevSate.products.filter((product)=>{
-                return (product.id !== id);
+        deleteProduct(id).then(()=>{
+            this.setState((prevSate)=>{
+                const filteredProducts = prevSate.products.filter((product)=>{
+                    return (product.id !== id);
+                });
+                return {products: filteredProducts};
             });
-            return {products: filteredProducts};
-        });
+        }).catch((error)=>{
+            console.error("Delete products is failed", error);
+        });       
     }
 
     renderProducts() {
